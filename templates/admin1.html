@@ -1,0 +1,38 @@
+{% extends 'common.html' %}
+
+{% block IT %}
+  {% include 'main_menu.html' %}
+    <style>
+        #admin_title{
+            font-size: 30px;
+            font-family: Calibri;
+            color: darkmagenta;
+        }
+    </style>
+    <form action="{% url 'admin_login_check' %}" method="post">
+    {% csrf_token %}
+    <table align="center">
+    <tr>
+        <th id="admin_title">Admin Login Page</th>
+    </tr>
+      <tr>
+          <th> USERNAME:<input type="text" placeholder="Username" required name="t1"></th>
+      </tr>
+    <tr>
+        <th>PASSWORD:<input type="password" placeholder="Password" required name="t2"></th>
+    </tr>
+    <tr align="center">
+        <th><button type="submit">Login</button></th>
+    </tr>
+        {% if messages %}
+        <tr>
+           <th>
+             {% for x in messages %}
+                <h2 align="center" style="background-color: crimson;font-size: 30px;color:black "> {{ x }}</h2>
+             {% endfor %}
+           </th>
+        </tr>
+        {% endif %}
+    </table>
+    </form>
+{% endblock %}

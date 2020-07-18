@@ -1,0 +1,120 @@
+{% extends 'common.html' %}
+
+{% block IT %}
+      {% include 'admin_menu.html' %}
+    <style>
+        #header {
+            font-size: 20px;
+            font-family: Arial;
+            text-align: center;
+            color: white;
+            background-color: blue;
+            width: 400px;
+
+    }
+    </style>
+    <form action="{% url 'save_classes' %}" method="post">
+    {% csrf_token %}
+    <table align="center">
+    <tr><th id="header">Schedule New Class</th></tr>
+    <tr>
+        <th>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text"
+                   placeholder="Course Name"
+                   name="s1"
+                   required
+                   class="form-control"
+                   aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+            </div>
+        </th>
+    </tr>
+     <tr>
+        <th>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text"
+                   placeholder="Faculty"
+                   name="s2"
+                   required
+                   class="form-control"
+                   aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+            </div>
+        </th>
+    </tr>
+     <tr>
+        <th>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="date"
+                   placeholder="Date"
+                   name="s3"
+                   required
+                   class="form-control"
+                   aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+            </div>
+        </th>
+    </tr>
+     <tr>
+        <th>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="time"
+                   placeholder="Time"
+                   name="s4"
+                   required
+                   class="form-control"
+                   aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+            </div>
+        </th>
+    </tr>
+     <tr>
+        <th>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="number"
+                   placeholder="Fee"
+                   name="s5"
+                   required
+                   class="form-control"
+                   aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+            </div>
+        </th>
+    </tr>
+     <tr>
+        <th>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="number"
+                   placeholder="Duration"
+                   name="s6"
+                   required
+                   class="form-control"
+                   aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+            </div>
+        </th>
+    </tr>
+    <tr align="center">
+        <th>
+            <button type="submit" class="btn btn-dark">Save</button>
+        </th>
+    </tr>
+    </table>
+    </form>
+     {% for x in messages %}
+                <h2 align="center" style="background-color: crimson;font-size: 30px;color:black "> {{ x }}</h2>
+             {% endfor %}
+{% endblock %}

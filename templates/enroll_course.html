@@ -1,0 +1,40 @@
+{% extends 'common.html' %}
+{% block IT %}
+{% include 'main_menu.html' %}
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'enroll_course' %}">ENROLL THE COURSE</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'view_enroll_courses' %}">VIEW ALL ENROLL COURSE</a>
+  </li>
+
+</ul>
+    <table align="center" BORDER="3">
+    <tr>
+
+                <th>COURSE NAME</th>
+                <th>FACULTY</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>FEE</th>
+                <th>DURATIONS</th>
+                <th>ENROLL</th>
+    </tr>
+{% for x in data %}
+      <tr>
+
+                <th>{{ x.course_name }}</th>
+                <th>{{ x.faculty }}</th>
+                <th>{{ x.date }}</th>
+                <th>{{ x.time }}</th>
+                <th>{{ x.fee }}</th>
+                <th>{{ x.duration }}</th>
+                <th>
+                 <a href="{% url 'add_enroll' %}?t1={{ x.course_id }}&t2={{ x.course_name }}" > yes</a>
+                </th>
+    </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

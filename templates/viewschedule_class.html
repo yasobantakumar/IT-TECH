@@ -1,0 +1,38 @@
+{% extends 'common.html' %}
+
+{% block IT %}
+    {% include 'admin_menu.html' %}
+   <table class="table table-light">
+      <thead>
+         <tr style="background-color: black;color: honeydew">
+             <th scope="col">Course Name</th>
+             <th scope="col">Faculty Name</th>
+             <th scope="col">Date</th>
+             <th scope="col">Time</th>
+             <th scope="col">Fees</th>
+             <th scope="col">Duration</th>
+             <th scope="col">Update</th>
+             <th scope="col">Delete</th>
+         </tr>
+      {% for x in data %}
+           <tr>
+             <th scope="col">{{ x.course_name }}</th>
+             <th scope="col">{{ x.faculty }}</th>
+             <th scope="col">{{ x.date }}</th>
+             <th scope="col">{{ x.time }}</th>
+             <th scope="col">{{ x.fee }}</th>
+             <th scope="col">{{ x.duration }}</th>
+             <th scope="col">
+               <a href="#">Yes</a>
+             </th>
+             <th scope="col">
+                  <a href="#">Yes</a>
+             </th>
+         </tr>
+
+      {% endfor %}
+
+      </thead>
+   </table>
+
+{% endblock %}

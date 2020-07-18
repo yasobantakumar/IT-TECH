@@ -1,0 +1,21 @@
+{% extends 'common.html' %}
+
+{% block IT %}
+    {% include 'main_menu.html' %}
+
+
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'enroll_course' %}">ENROLL THE COURSE</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'view_enroll_courses' %}">VIEW ALL ENROLL COURSE</a>
+  </li>
+
+
+</ul>
+
+
+
+
+{% endblock %}

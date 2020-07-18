@@ -1,0 +1,26 @@
+{% extends 'common.html' %}
+
+{% block IT %}
+     {% include 'main_menu.html' %}
+    <form action="{% url 'student_login_check' %}" method="post">
+    {% csrf_token %}
+    <table align="center" border="2">
+      <tr>
+          <th style="text-align: center ">Student Login Page</th>
+      </tr>
+      <tr>
+          <th>Email :<input type="email" required name="t1"></th>
+      </tr>
+      <tr>
+          <th>Password :<input type="password" required name="t2"></th>
+      </tr>
+      <tr>
+          <th style="text-align: center"><button type="submit">Login</button></th>
+      </tr>
+    </table>
+    </form>
+
+    <h5 style="text-align: center;color: yellow;background-color: black">
+    <a href="{% url 'student_register' %}">CLICK TO STUDENT REGISTER</a>
+    </h5>
+{% endblock %}
