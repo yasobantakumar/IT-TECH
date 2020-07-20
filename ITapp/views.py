@@ -47,6 +47,31 @@ def viewschedule_class(request):
 
 
 
+def update_cls(request):
+    course_name=request.GET.get("c_name")
+    cls=ScheduleclassModel.objects.get(course_name=course_name)
+    return render(request,"update_cls.html",{"course-name":course_name,"data":cls})
+
+
+
+def us_cls(request):
+    cid=request.POST.get("id")
+    course=request.POST.get("u0")
+    fac=request.POST.get("u1")
+    date=request.POST.get("u2")
+    time=request.POST.get("u3")
+    fees=request.POST.get("u4")
+    dura=request.POST.get("u5")
+    ScheduleclassModel.objects.filter(course_id=cid).update(course_name=course,faculty=fac,date=date,time=time,fee=fees,duration=dura)
+    return redirect('viewschedule_class')
+
+
+
+def delete_course(request):
+    c=request.GET.get("did")
+    ScheduleclassModel.objects.filter(course_id=c).delete()
+    return redirect('viewschedule_class')
+
 def student(request):
     return render(request,"student.html")
 
@@ -103,6 +128,3 @@ def cancel_enroll_class(request):
     response=redirect('view_enroll_courses')
     response.delete_cookie(courseid)
     return response
-
-
-    return None

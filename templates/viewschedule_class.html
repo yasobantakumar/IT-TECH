@@ -5,6 +5,7 @@
    <table class="table table-light">
       <thead>
          <tr style="background-color: black;color: honeydew">
+             <th scope="col">Course id</th>
              <th scope="col">Course Name</th>
              <th scope="col">Faculty Name</th>
              <th scope="col">Date</th>
@@ -16,6 +17,7 @@
          </tr>
       {% for x in data %}
            <tr>
+               <th scope="col">{{ x.course_id }}</th>
              <th scope="col">{{ x.course_name }}</th>
              <th scope="col">{{ x.faculty }}</th>
              <th scope="col">{{ x.date }}</th>
@@ -23,10 +25,10 @@
              <th scope="col">{{ x.fee }}</th>
              <th scope="col">{{ x.duration }}</th>
              <th scope="col">
-               <a href="#">Yes</a>
+               <a href="{% url 'update_cls' %}?c_name={{ x.course_name }}">Yes</a>
              </th>
              <th scope="col">
-                  <a href="#">Yes</a>
+                  <a href="{% url 'delete_course' %}?did={{ x.course_id }}">Yes</a>
              </th>
          </tr>
 
